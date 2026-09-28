@@ -1,0 +1,2133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenis-Jenis Bencana dan Proses Terjadinya</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(ellipse at 50% 108%, rgba(249, 115, 22, 0.34) 0%, rgba(153, 27, 27, 0.16) 23%, transparent 52%),
+                radial-gradient(ellipse at 12% 18%, rgba(14, 116, 144, 0.22) 0%, transparent 36%),
+                linear-gradient(180deg, #101b2a 0%, #202d3a 48%, #302b2b 76%, #17191d 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            isolation: isolate;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.2;
+            background-image: repeating-linear-gradient(108deg, transparent 0 34px, rgba(186, 220, 232, 0.34) 35px, transparent 36px 74px);
+            mask-image: linear-gradient(180deg, #000 0%, transparent 78%);
+        }
+
+        .disaster-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .volcano {
+            position: absolute;
+            right: 3%;
+            bottom: -12vh;
+            width: clamp(390px, 59vw, 820px);
+            height: clamp(310px, 55vh, 560px);
+            clip-path: polygon(0 100%, 21% 59%, 32% 66%, 57% 8%, 63% 3%, 69% 27%, 79% 45%, 100% 100%);
+            background:
+                linear-gradient(105deg, transparent 0 42%, rgba(255, 115, 24, 0.76) 49%, rgba(255, 193, 69, 0.9) 51%, rgba(226, 72, 24, 0.82) 54%, transparent 62%),
+                linear-gradient(72deg, #25343a 0%, #59413a 38%, #8a4935 57%, #3d3635 78%, #242c31 100%);
+            filter: drop-shadow(0 0 34px rgba(246, 99, 30, 0.28));
+        }
+
+        .volcano::before {
+            content: "";
+            position: absolute;
+            inset: 8% 24% 0 43%;
+            clip-path: polygon(38% 0, 52% 3%, 62% 19%, 100% 100%, 63% 100%, 30% 37%, 0 100%, 20% 28%);
+            background: linear-gradient(180deg, #ffd36b 0%, #ff8a32 28%, #d94929 69%, rgba(188, 55, 36, 0.08) 100%);
+            opacity: 0.94;
+        }
+
+        .volcano::after {
+            content: "";
+            position: absolute;
+            top: 3%;
+            left: 56%;
+            width: 13%;
+            height: 5%;
+            border-radius: 50%;
+            background: #ffd475;
+            box-shadow: 0 0 24px 12px rgba(255, 114, 41, 0.7);
+        }
+
+        .eruption-cloud {
+            position: absolute;
+            right: clamp(150px, 25vw, 360px);
+            bottom: 33vh;
+            width: clamp(130px, 19vw, 250px);
+            height: clamp(170px, 29vh, 300px);
+            border-radius: 48% 52% 44% 46%;
+            opacity: 0.84;
+            background:
+                radial-gradient(ellipse at 53% 76%, rgba(247, 128, 63, 0.94) 0 15%, transparent 42%),
+                radial-gradient(ellipse at 25% 43%, #786557 0 22%, transparent 49%),
+                radial-gradient(ellipse at 72% 34%, #665c55 0 25%, transparent 51%),
+                radial-gradient(ellipse at 52% 18%, #9a7660 0 24%, transparent 48%);
+            filter: drop-shadow(0 0 20px rgba(239, 115, 56, 0.26));
+        }
+
+        .flood-wave {
+            position: absolute;
+            left: -5vw;
+            bottom: -3vh;
+            width: clamp(360px, 51vw, 720px);
+            height: clamp(85px, 15vh, 155px);
+            border-radius: 52% 48% 0 0 / 34% 52% 0 0;
+            opacity: 0.82;
+            transform: rotate(-4deg);
+            background:
+                repeating-linear-gradient(168deg, transparent 0 18px, rgba(191, 247, 248, 0.4) 19px, transparent 21px 38px),
+                linear-gradient(180deg, #43c1c4, #14677b 74%, #153a4b);
+            box-shadow: 0 -12px 40px rgba(31, 190, 200, 0.3);
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.25s ease-in-out;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4)); }
+            50% { transform: scale(1.02); filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.7)); }
+        }
+
+        .pulse-btn {
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }
+
+        .certificate-card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(8, 47, 73, 0.94), rgba(30, 41, 59, 0.96));
+            border: 1px solid rgba(125, 211, 252, 0.52);
+            box-shadow: inset 0 0 0 6px rgba(14, 116, 144, 0.15), 0 18px 50px rgba(2, 8, 23, 0.35);
+        }
+
+        .certificate-card::before,
+        .certificate-card::after {
+            content: "";
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 1px solid rgba(251, 191, 36, 0.48);
+            transform: rotate(45deg);
+        }
+
+        .certificate-card::before { top: -70px; left: -70px; }
+        .certificate-card::after { right: -70px; bottom: -70px; }
+
+        .certificate-seal {
+            width: 72px;
+            height: 72px;
+            border: 2px solid rgba(251, 191, 36, 0.78);
+            border-radius: 50%;
+            color: #fde68a;
+            display: grid;
+            place-items: center;
+            font-size: 25px;
+            box-shadow: 0 0 0 5px rgba(251, 191, 36, 0.1);
+        }
+
+        @media print {
+            @page { size: A4 landscape; margin: 0; }
+            body * { visibility: hidden !important; }
+            #certificatePrintArea,
+            #certificatePrintArea * { visibility: visible !important; }
+            #certificatePrintArea {
+                position: absolute;
+                inset: 0;
+                width: 100vw;
+                height: 100vh;
+                max-width: none;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #102a43;
+            }
+            #certificatePrintArea::before,
+            #certificatePrintArea::after { display: block; }
+        }
+
+        #quizScreen {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #quizScreen > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        #quizScreen.theme-flood::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.22;
+            background-image: repeating-linear-gradient(112deg, transparent 0 24px, rgba(186, 230, 253, 0.6) 25px, transparent 27px 52px);
+            animation: rainSweep 700ms linear infinite;
+        }
+
+        #quizScreen.theme-quake {
+            animation: quizQuake 180ms ease-in-out infinite alternate;
+        }
+
+        .question-timer {
+            color: #bae6fd;
+            border-color: rgba(56, 189, 248, 0.38);
+            background: rgba(8, 47, 73, 0.5);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .question-timer.is-urgent {
+            color: #fecaca;
+            border-color: rgba(248, 113, 113, 0.8);
+            background: rgba(127, 29, 29, 0.64);
+            animation: timerUrgent 650ms ease-in-out infinite alternate;
+        }
+
+        @keyframes quizQuake {
+            from { transform: translate(-1px, 0) rotate(-0.15deg); }
+            to { transform: translate(1px, 1px) rotate(0.15deg); }
+        }
+
+        @keyframes rainSweep {
+            to { background-position: 0 52px; }
+        }
+
+        .simulation-panel {
+            background: linear-gradient(135deg, rgba(127, 29, 29, 0.34), rgba(15, 23, 42, 0.72));
+            border: 1px solid rgba(251, 146, 60, 0.38);
+            box-shadow: inset 0 0 28px rgba(245, 158, 11, 0.05);
+        }
+
+        .simulation-timer {
+            color: #fed7aa;
+            border-color: rgba(251, 146, 60, 0.45);
+            background: rgba(124, 45, 18, 0.34);
+        }
+
+        .simulation-timer.is-urgent {
+            color: #fecaca;
+            border-color: rgba(248, 113, 113, 0.8);
+            background: rgba(127, 29, 29, 0.58);
+            animation: timerUrgent 650ms ease-in-out infinite alternate;
+        }
+
+        @keyframes timerUrgent {
+            to { transform: scale(1.06); box-shadow: 0 0 20px rgba(248, 113, 113, 0.34); }
+        }
+
+        .intro-action {
+            border: 1px solid rgba(125, 211, 252, 0.35);
+            background: rgba(8, 20, 31, 0.62);
+            color: #d8f1ff;
+            transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+        }
+
+        .intro-action:hover {
+            background: rgba(12, 45, 63, 0.82);
+            border-color: rgba(125, 211, 252, 0.72);
+            transform: translateY(-2px);
+        }
+
+        .intro-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+            place-items: center;
+            overflow: hidden;
+            background: #03080d;
+            color: white;
+        }
+
+        .intro-overlay.is-playing {
+            display: grid;
+        }
+
+        .intro-frame {
+            position: relative;
+            width: min(100vw, 177.78vh);
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            isolation: isolate;
+            background: #071019;
+            box-shadow: 0 0 100px rgba(14, 165, 233, 0.12);
+        }
+
+        .intro-frame::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            pointer-events: none;
+            background: linear-gradient(90deg, rgba(2, 8, 14, 0.62), transparent 53%), linear-gradient(0deg, rgba(2, 8, 14, 0.72), transparent 42%), radial-gradient(ellipse, transparent 38%, rgba(1, 5, 10, 0.5));
+        }
+
+        .intro-shot {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            opacity: 0;
+            animation: introShot var(--shot-duration) ease var(--shot-delay) both;
+        }
+
+        .intro-shot svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            animation: slowCamera var(--shot-duration) ease-in-out var(--shot-delay) both;
+        }
+
+        .intro-earth { --shot-delay: 0s; --shot-duration: 4.8s; }
+        .intro-tsunami { --shot-delay: 3.55s; --shot-duration: 5s; }
+        .intro-volcano { --shot-delay: 7.25s; --shot-duration: 5.8s; }
+        .intro-finale {
+            --shot-delay: 12.55s;
+            --shot-duration: 5.45s;
+            animation-name: introFinale;
+        }
+
+        .intro-caption {
+            position: absolute;
+            left: 8%;
+            bottom: 15%;
+            z-index: 2;
+            max-width: 70%;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+            animation: captionIn 700ms ease both;
+        }
+
+        .intro-caption h2 {
+            margin: 0;
+            font-size: 48px;
+            line-height: 1;
+            font-weight: 800;
+            text-shadow: 0 3px 28px rgba(0, 0, 0, 0.85);
+        }
+
+        .intro-caption p {
+            max-width: 470px;
+            margin-top: 0.75rem;
+            color: rgba(239, 246, 255, 0.85);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .intro-finale-copy {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 3;
+            width: 84%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+        }
+
+        .intro-finale-copy h2 {
+            margin: 0 auto;
+            max-width: 1050px;
+            color: #f5fbff;
+            font-size: 50px;
+            line-height: 1.08;
+            font-weight: 800;
+            text-shadow: 0 0 24px rgba(56, 189, 248, 0.75), 0 5px 36px rgba(0, 0, 0, 0.95);
+            animation: titleBloom 1.4s ease 13s both;
+        }
+
+        .intro-creator-slide {
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            display: grid;
+            place-items: center;
+            padding: 8%;
+            background: radial-gradient(ellipse at center, rgba(8, 47, 73, 0.94), rgba(3, 12, 22, 0.96) 72%);
+            opacity: 0;
+            pointer-events: none;
+            animation: creatorReveal 3.6s ease 14.4s both;
+        }
+
+        .intro-creator-card {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            width: min(760px, 100%);
+            padding: 26px 34px;
+            border: 1px solid rgba(125, 211, 252, 0.42);
+            border-radius: 20px;
+            background: rgba(15, 23, 42, 0.68);
+            box-shadow: 0 0 42px rgba(14, 165, 233, 0.2);
+        }
+
+        .intro-creator-card img {
+            width: 112px;
+            height: 112px;
+            flex-shrink: 0;
+            border: 3px solid rgba(251, 191, 36, 0.78);
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 24px rgba(251, 191, 36, 0.24);
+        }
+
+        .intro-creator-card h3 {
+            margin: 0;
+            color: #fef3c7;
+            font-size: 27px;
+            font-weight: 800;
+        }
+
+        .intro-creator-card p {
+            margin: 5px 0 0;
+            color: rgba(224, 242, 254, 0.8);
+            font-size: 14px;
+        }
+
+        .intro-creator-card .creator-label {
+            margin-bottom: 8px;
+            color: #7dd3fc;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @keyframes creatorReveal {
+            0% { opacity: 0; transform: scale(1.04); }
+            18% { opacity: 1; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .intro-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: min(68%, 750px);
+            aspect-ratio: 2.4 / 1;
+            border: 1px solid rgba(155, 225, 255, 0.5);
+            border-radius: 50%;
+            box-shadow: 0 0 24px rgba(56, 189, 248, 0.28), inset 0 0 24px rgba(56, 189, 248, 0.18);
+            transform: translate(-50%, -50%) rotate(-12deg);
+            animation: orbitSpin 7s linear infinite;
+        }
+
+        .intro-orbit::before,
+        .intro-orbit::after {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #a5f3fc;
+            box-shadow: 0 0 16px 5px rgba(56, 189, 248, 0.72);
+        }
+
+        .intro-orbit::before { top: 12%; left: 17%; }
+        .intro-orbit::after { right: 11%; bottom: 16%; width: 5px; height: 5px; background: #fdba74; }
+
+        .intro-launch {
+            margin-top: 34px;
+            padding: 14px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.82);
+            border-radius: 999px;
+            background: linear-gradient(110deg, #f97316, #eab308 48%, #38bdf8);
+            color: #101820;
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 0 28px rgba(249, 115, 22, 0.54);
+        }
+
+        .intro-overlay.is-ready .intro-launch {
+            pointer-events: auto;
+            animation: launchPulse 1.8s ease-in-out infinite;
+        }
+
+        .intro-skip {
+            position: absolute;
+            top: 20px;
+            right: 22px;
+            z-index: 10;
+            padding: 9px 13px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            background: rgba(4, 12, 20, 0.58);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            backdrop-filter: blur(8px);
+        }
+
+        @keyframes introShot {
+            0% { opacity: 0; }
+            12% { opacity: 1; }
+            84% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes introFinale {
+            0% { opacity: 0; }
+            12% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slowCamera {
+            from { transform: scale(1.06) translateX(0); }
+            to { transform: scale(1.16) translateX(-1.5%); }
+        }
+
+        @keyframes captionIn {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes titleBloom {
+            from { opacity: 0; transform: scale(0.92); filter: blur(12px); }
+            to { opacity: 1; transform: scale(1); filter: blur(0); }
+        }
+
+        @keyframes orbitSpin {
+            to { transform: translate(-50%, -50%) rotate(348deg); }
+        }
+
+        @keyframes launchPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.78; transform: scale(1.045); }
+        }
+
+        @media (max-width: 640px) {
+            .intro-caption { bottom: 12%; max-width: 86%; }
+            .intro-caption h2 { font-size: 25px; }
+            .intro-caption p { margin-top: 0.35rem; font-size: 10px; }
+            .intro-finale-copy h2 { font-size: 24px; }
+            .intro-launch { margin-top: 16px; padding: 9px 18px; font-size: 11px; }
+            .intro-creator-card { gap: 14px; padding: 16px; }
+            .intro-creator-card img { width: 70px; height: 70px; }
+            .intro-creator-card h3 { font-size: 16px; }
+            .intro-creator-card p { margin-top: 3px; font-size: 9px; }
+            .intro-creator-card .creator-label { margin-bottom: 4px; font-size: 7px; letter-spacing: 1px; }
+            .intro-skip { top: 8px; right: 8px; padding: 6px 9px; font-size: 9px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .intro-shot, .intro-shot svg, .intro-caption, .intro-finale-copy h2, .intro-orbit, .intro-launch, .intro-creator-slide {
+                animation-duration: 0.01ms !important;
+                animation-delay: 0s !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+
+    </style>
+</head>
+<body class="p-3 sm:p-6 flex flex-col justify-between min-h-screen custom-scrollbar">
+
+    <div class="disaster-backdrop" aria-hidden="true">
+        <div class="eruption-cloud"></div>
+        <div class="volcano"></div>
+        <div class="flood-wave"></div>
+    </div>
+
+    <!-- Header / Top Bar -->
+    <header class="max-w-5xl mx-auto w-full glass-panel rounded-2xl p-4 mb-4 shadow-xl flex flex-wrap justify-between items-center gap-4">
+        <div class="flex items-center space-x-3">
+            <div class="bg-indigo-500/20 p-2.5 rounded-xl border border-indigo-500/30 text-indigo-400 text-xl sm:text-2xl">
+                🌋
+            </div>
+            <div>
+                <h1 class="font-extrabold text-base sm:text-lg text-slate-100 flex items-center gap-2">
+                    NATURE HAZARDS <span class="text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full border border-indigo-500/30 font-semibold">EduGame</span>
+                </h1>
+                <p class="text-xs text-slate-400">Jenis-Jenis Bencana dan Proses Terjadinya</p>
+            </div>
+        </div>
+
+        <!-- In-game Indicators (Shown during quiz) -->
+        <div id="topStatsBar" class="hidden flex items-center gap-3 sm:gap-6 bg-slate-900/60 px-4 py-2 rounded-xl border border-slate-700/50">
+            <div class="text-center">
+                <span class="text-[9px] uppercase tracking-wider text-slate-400 block font-semibold">Level</span>
+                <span id="headerLevel" class="text-xs sm:text-sm font-bold text-indigo-400">1 - Geologi</span>
+            </div>
+            <div class="h-6 w-px bg-slate-700"></div>
+            <div class="text-center">
+                <span class="text-[9px] uppercase tracking-wider text-slate-400 block font-semibold">Combo</span>
+                <span id="headerCombo" class="text-xs sm:text-sm font-bold text-amber-400">0x</span>
+            </div>
+            <div class="h-6 w-px bg-slate-700"></div>
+            <div class="text-center">
+                <span class="text-[9px] uppercase tracking-wider text-slate-400 block font-semibold">Skor</span>
+                <span id="headerScore" class="text-xs sm:text-sm font-bold text-emerald-400">0</span>
+            </div>
+            <div class="h-6 w-px bg-slate-700"></div>
+            <div class="max-w-[180px] text-left">
+                <span class="text-[9px] uppercase tracking-wider text-slate-400 block font-semibold">Peserta</span>
+                <span id="headerParticipant" class="block truncate text-xs font-bold text-sky-300">-</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Game Container -->
+    <main class="max-w-5xl mx-auto w-full flex-grow flex flex-col justify-center my-auto">
+
+        <!-- ================= PAGE 1: START SCREEN ================= -->
+        <div id="startScreen" class="glass-panel rounded-3xl p-6 sm:p-10 shadow-2xl text-center flex flex-col items-center">
+            <div class="text-5xl sm:text-6xl mb-4 animate-bounce">🌊🌋🌪️</div>
+            
+            <h2 class="text-2xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-sky-300 to-emerald-300 mb-3">
+                Jenis-Jenis Bencana <br class="hidden sm:inline">& Proses Terjadinya
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed mb-8">
+                Uji dan tingkatkan pemahamanmu tentang proses ilmiah terjadinya bencana alam geologi, hidrometeorologi, hingga bencana terestrial. Jawab soal, susun tahapan kronologis, dan dapatkan gelar Mitigasi Bencana!
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-x-10 gap-y-5 w-full mb-8 text-left">
+                <div class="flex items-center gap-3">
+                    <img src="../assets/nofrion.jpeg" alt="Foto Dr. Nofrion" class="w-14 h-14 rounded-full object-cover border-2 border-sky-300/70 shadow-lg">
+                    <div>
+                        <div class="text-sm font-bold text-slate-100">Dr. Nofrion, M.Pd.</div>
+                        <div class="text-xs text-slate-400">Dosen Pengampu</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <img src="../assets/ziq.jpeg" alt="Foto Raziq Al Kahfi" class="w-14 h-14 rounded-full object-cover border-2 border-emerald-300/70 shadow-lg">
+                    <div>
+                        <div class="text-sm font-bold text-slate-100">Raziq Al Kahfi</div>
+                        <div class="text-xs text-slate-400">Pengembang Game</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level Badges Preview -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-2xl mb-8">
+                <div class="glass-card p-4 rounded-2xl border border-indigo-500/30 text-left">
+                    <div class="text-2xl mb-1">🌋</div>
+                    <div class="text-xs font-bold text-indigo-300 uppercase tracking-wider">Level 1</div>
+                    <div class="text-sm font-semibold text-slate-100">Bencana Geologi</div>
+                    <p class="text-[11px] text-slate-400 mt-1">Gempa, Tsunami, Gunung Meletus, Longsor.</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-sky-500/30 text-left">
+                    <div class="text-2xl mb-1">🌧️</div>
+                    <div class="text-xs font-bold text-sky-300 uppercase tracking-wider">Level 2</div>
+                    <div class="text-sm font-semibold text-slate-100">Bencana Hidrometeorologi</div>
+                    <p class="text-[11px] text-slate-400 mt-1">Banjir Bandang, Puting Beliung, Kekeringan.</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-amber-500/30 text-left">
+                    <div class="text-2xl mb-1">🔥</div>
+                    <div class="text-xs font-bold text-amber-300 uppercase tracking-wider">Level 3</div>
+                    <div class="text-sm font-semibold text-slate-100">Terestrial & Ekstrem</div>
+                    <p class="text-[11px] text-slate-400 mt-1">Kebakaran Hutan, Gelombang Panas, Dll.</p>
+                </div>
+            </div>
+
+            <div class="w-full max-w-2xl mb-8 rounded-2xl border border-sky-400/25 bg-slate-950/35 p-4 text-left">
+                <div class="mb-3 flex items-center gap-2 text-sm font-bold text-sky-200">
+                    <i class="fa-solid fa-id-card text-sky-300" aria-hidden="true"></i>
+                    <span>Identitas Peserta Didik</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <label class="text-xs font-semibold text-slate-300">
+                        Nama Lengkap Murid
+                        <input id="participantName" type="text" autocomplete="name" required placeholder="Contoh: Ahmad Fauzan" class="mt-1.5 w-full rounded-xl border border-slate-600 bg-slate-900/80 px-3 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400">
+                    </label>
+                    <label class="text-xs font-semibold text-slate-300">
+                        Kelas
+                        <select id="participantClass" required class="mt-1.5 w-full rounded-xl border border-slate-600 bg-slate-900/80 px-3 py-2.5 text-sm text-white outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400">
+                            <option value="">Pilih kelas</option>
+                            <option value="X">Kelas X</option>
+                            <option value="XI">Kelas XI</option>
+                            <option value="XII">Kelas XII</option>
+                        </select>
+                    </label>
+                    <label class="text-xs font-semibold text-slate-300 sm:col-span-2">
+                        Asal Sekolah
+                        <input id="participantSchool" type="text" autocomplete="organization" required placeholder="Contoh: SMA Negeri 1 Indonesia" class="mt-1.5 w-full rounded-xl border border-slate-600 bg-slate-900/80 px-3 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400">
+                    </label>
+                </div>
+                <p id="identityError" class="hidden mt-3 text-xs font-semibold text-rose-300">Lengkapi nama, kelas, dan asal sekolah sebelum memulai.</p>
+            </div>
+
+            <!-- Start Button -->
+            <button id="btnStartGame" class="pulse-btn bg-gradient-to-r from-indigo-600 via-sky-600 to-emerald-600 hover:from-indigo-500 hover:to-emerald-500 text-white font-extrabold text-base sm:text-lg px-8 py-4 rounded-2xl shadow-xl transition-all duration-300 flex items-center gap-3">
+                <span>Mulai Kuis</span>
+                <i class="fa-solid fa-play"></i>
+            </button>
+        </div>
+
+
+        <!-- ================= PAGE 2: QUIZ SCREEN ================= -->
+        <div id="quizScreen" class="hidden glass-panel rounded-3xl p-5 sm:p-8 shadow-2xl flex flex-col justify-between min-h-[480px]">
+            
+            <!-- Quiz Header: Progress -->
+            <div>
+                <div class="flex justify-between items-center mb-2">
+                    <div class="flex items-center gap-2">
+                        <span id="badgeCategory" class="text-[10px] sm:text-xs font-bold bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full border border-indigo-500/30">
+                            GEOLOGI
+                        </span>
+                        <span id="questionCounter" class="text-xs text-slate-400 font-medium">Soal 1 / 10</span>
+                    </div>
+                    <div id="questionTimer" class="question-timer rounded-xl border px-3 py-1.5 text-[10px] sm:text-xs font-black tracking-wider">
+                        <i class="fa-solid fa-stopwatch mr-1"></i><span>01:00</span>
+                    </div>
+                </div>
+
+                <!-- Question Header -->
+                <div class="mb-6">
+                    <div class="flex items-start gap-3">
+                        <span id="qEmoji" class="text-3xl sm:text-4xl">🌋</span>
+                        <div>
+                            <span id="qTypeBadge" class="text-[10px] font-semibold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded border border-sky-500/20">
+                                Pilihan Ganda
+                            </span>
+                            <h3 id="questionText" class="font-bold text-base sm:text-xl text-slate-100 mt-1 leading-snug">
+                                Pertanyaan muncul di sini?
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Question Content Area -->
+            <div id="interactionContainer" class="my-auto py-2">
+                <!-- Tipe 1: Multiple Choice Options -->
+                <div id="typeMultipleChoice" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- Dynamic Buttons -->
+                </div>
+
+                <!-- Tipe 2: Sequence Ordering -->
+                <div id="typeSequence" class="hidden space-y-2">
+                    <p class="text-xs text-indigo-300 font-medium mb-2">
+                        <i class="fa-solid fa-arrow-down-short-wide mr-1"></i> Gunakan tombol Panah (▲/▼) untuk mengurutkan tahapan kronologis dari awal ke akhir:
+                    </p>
+                    <div id="sequenceList" class="space-y-2">
+                        <!-- Dynamic Sequence Items -->
+                    </div>
+                    <button id="btnSubmitSequence" class="w-full mt-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm py-3 rounded-xl transition shadow-lg">
+                        Konfirmasi Urutan Kronologis
+                    </button>
+                </div>
+
+                <!-- Tipe 3: Matching Causes & Hazards -->
+                <div id="typeMatching" class="hidden">
+                    <p class="text-xs text-sky-300 font-medium mb-3">
+                        <i class="fa-solid fa-diagram-project mr-1"></i> Pasangkan setiap pemicu/penyebab utama di kiri dengan jenis bencana yang tepat di kanan:
+                    </p>
+                    <div id="matchingGrid" class="space-y-3">
+                        <!-- Dynamic Matching Pairs -->
+                    </div>
+                    <button id="btnSubmitMatching" class="w-full mt-4 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs sm:text-sm py-3 rounded-xl transition shadow-lg">
+                        Konfirmasi Pasangan
+                    </button>
+                </div>
+
+                <!-- Tipe 4: Simulasi Respons Cepat -->
+                <div id="typeSimulation" class="hidden simulation-panel rounded-2xl p-4 sm:p-5">
+                    <div class="flex flex-wrap justify-between items-center gap-3 mb-4">
+                        <div class="text-xs text-orange-100 font-semibold">
+                            <i class="fa-solid fa-person-running mr-1 text-orange-300"></i> Respons cepat di situasi nyata
+                        </div>
+                        <div id="simulationTimer" class="simulation-timer rounded-xl border px-3 py-1.5 text-xs font-black tracking-wider">
+                            <i class="fa-solid fa-stopwatch mr-1"></i><span>01:00</span>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-orange-50/90 leading-relaxed mb-4">
+                        Gempa bumi terasa kuat saat kamu sedang berada di dalam kelas. Barang-barang mulai bergoyang dan beberapa teman panik. Apa tindakan tercepat yang paling tepat?
+                    </p>
+                    <div id="simulationOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+                </div>
+
+                <!-- Tipe 5: Mini-game Tas Siaga Bencana -->
+                <div id="typeEmergencyBag" class="hidden simulation-panel rounded-2xl p-4 sm:p-5">
+                    <div class="flex flex-wrap justify-between items-center gap-3 mb-3">
+                        <div class="text-xs text-orange-100 font-semibold">
+                            <i class="fa-solid fa-kit-medical mr-1 text-orange-300"></i> Pilih perlengkapan paling penting
+                        </div>
+                        <div class="text-xs font-bold text-amber-200">Slot: <span id="bagWeight">0</span> / 4</div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-orange-50/90 leading-relaxed mb-4">
+                        Tas siaga memiliki 4 slot. Pilih tepat barang-barang yang paling penting untuk keselamatan saat evakuasi.
+                    </p>
+                    <div id="emergencyBagItems" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+                    <button id="btnSubmitEmergencyBag" class="w-full mt-4 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs sm:text-sm py-3 rounded-xl transition shadow-lg">
+                        Periksa Isi Tas
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer Hint / Helper -->
+            <div class="mt-4 pt-3 border-t border-slate-700/60 flex justify-between items-center text-xs text-slate-400">
+                <span id="quizHintText"><i class="fa-solid fa-lightbulb text-amber-400 mr-1"></i> Jawaban benar beruntun menambah Combo!</span>
+                <span id="levelIndicator" class="font-semibold text-slate-300">Level 1/3</span>
+            </div>
+        </div>
+
+
+        <!-- ================= PAGE 3: RESULT SCREEN ================= -->
+        <div id="resultScreen" class="hidden glass-panel rounded-3xl p-6 sm:p-10 shadow-2xl text-center">
+            <div id="resultBadgeIcon" class="w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl mb-4 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                🏅
+            </div>
+
+            <span id="resultBadgeTitle" class="text-xs font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1 rounded-full border border-emerald-500/20">
+                AHLI MITIGASI BENCANA
+            </span>
+
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-100 mt-3 mb-2">Hasil Evaluasi Pemahaman</h2>
+            <p id="resultSubtitle" class="text-xs sm:text-sm text-slate-300 max-w-md mx-auto mb-6">
+                Selamat! Kamu telah menyelesaikan seluruh level edukasi mengenai jenis-jenis bencana dan proses ilmiah terjadinya.
+            </p>
+
+            <!-- Score Cards Stats Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto mb-6 text-left">
+                <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-700">
+                    <span class="text-[10px] text-slate-400 uppercase font-semibold block">Total Skor</span>
+                    <span id="finalScoreText" class="text-lg sm:text-xl font-bold text-emerald-400">0</span>
+                </div>
+                <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-700">
+                    <span class="text-[10px] text-slate-400 uppercase font-semibold block">Akurasi Jawaban</span>
+                    <span id="finalAccuracyText" class="text-lg sm:text-xl font-bold text-sky-400">0%</span>
+                </div>
+                <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-700">
+                    <span class="text-[10px] text-slate-400 uppercase font-semibold block">Benar / Total</span>
+                    <span id="finalCorrectText" class="text-lg sm:text-xl font-bold text-indigo-400">0 / 10</span>
+                </div>
+            </div>
+
+            <div id="certificatePrintArea" class="certificate-card max-w-3xl mx-auto mb-6 rounded-2xl p-6 sm:p-8 text-center">
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="certificate-seal mb-3">★</div>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-amber-200">Sertifikat Kelulusan</p>
+                    <h3 class="mt-2 text-xl sm:text-3xl font-black uppercase tracking-wider text-white">Peserta Tanggap Bencana</h3>
+                    <p class="mt-3 text-xs text-sky-100/80">Diberikan kepada</p>
+                    <p id="certificateParticipantName" class="mt-1 text-2xl sm:text-4xl font-black text-amber-200">Nama Peserta</p>
+                    <p id="certificateParticipantInfo" class="mt-2 text-xs sm:text-sm text-sky-100">Kelas - • Sekolah</p>
+                    <p class="mt-4 max-w-xl text-xs sm:text-sm leading-relaxed text-slate-200">
+                        Telah menyelesaikan kuis edukasi <strong>Jenis-Jenis Bencana dan Proses Terjadinya</strong> dengan pemahaman tentang kesiapsiagaan dan mitigasi bencana.
+                    </p>
+                    <div class="mt-5 flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs text-sky-100">
+                        <span>Skor: <strong id="certificateScore" class="text-amber-200">0</strong></span>
+                        <span>Akurasi: <strong id="certificateAccuracy" class="text-amber-200">0%</strong></span>
+                        <span id="certificateDate">28 September 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card max-w-2xl mx-auto mb-6 rounded-2xl p-4 sm:p-5 flex items-center gap-4 text-left">
+                <img src="../assets/ziq.jpeg" alt="Foto Raziq Al Kahfi" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-amber-300/70 shadow-lg flex-shrink-0">
+                <div>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-sky-300">Informasi Pembuat</p>
+                    <h3 class="text-base sm:text-lg font-extrabold text-amber-200">Raziq Al Kahfi</h3>
+                    <p class="text-xs text-slate-300">NIM 25045077 • Prodi Pendidikan Geografi</p>
+                    <p class="text-xs text-slate-400">Universitas Negeri Padang (UNP)</p>
+                </div>
+            </div>
+
+            <!-- Education Review Summary Box -->
+            <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-700 text-left max-w-2xl mx-auto mb-8 max-h-40 overflow-y-auto custom-scrollbar">
+                <h4 class="text-xs font-bold text-indigo-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <i class="fa-solid fa-graduation-cap"></i> Ringkasan Mitigasi & Edukasi
+                </h4>
+                <p id="summaryEduText" class="text-xs text-slate-300 leading-relaxed">
+                    Memahami proses sains di balik bencana alam seperti mekanisme subduksi lempeng, efek rumah kaca, dan siklus hidrologi adalah kunci utama dalam kesiapsiagaan serta mitigasi bencana.
+                </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-3">
+                <button id="btnPrintCertificate" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow-xl transition flex items-center gap-2">
+                    <i class="fa-solid fa-print" aria-hidden="true"></i>
+                    <span>Cetak / Simpan PDF</span>
+                </button>
+                <button id="btnRestartGame" class="pulse-btn bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-500 hover:to-emerald-500 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-xl transition flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span>Main Lagi</span>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ================= MODAL EXPLANATION FEEDBACK ================= -->
+    <div id="feedbackModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-800 border border-slate-700 rounded-3xl max-w-xl w-full p-6 shadow-2xl relative flex flex-col justify-between max-h-[90vh] overflow-y-auto custom-scrollbar">
+            
+            <div>
+                <!-- Feedback Title Header -->
+                <div class="flex items-center gap-3 mb-3">
+                    <div id="feedbackStatusIcon" class="w-10 h-10 rounded-full flex items-center justify-center text-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                        ✓
+                    </div>
+                    <div>
+                        <span id="feedbackStatusText" class="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                            Jawaban Benar!
+                        </span>
+                        <h3 id="feedbackTitle" class="font-bold text-slate-100 text-base sm:text-lg">
+                            Proses Sains Terjadinya Tsunami
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Explanation Scientific Details -->
+                <div class="bg-slate-900/80 rounded-2xl p-4 border border-slate-700/80 mb-4 text-xs text-slate-200 leading-relaxed space-y-2">
+                    <p id="feedbackExplanation">
+                        Penjelasan sains akan ditampilkan di sini.
+                    </p>
+                </div>
+
+                <!-- Diagram / Process Steps Visual Box -->
+                <div class="bg-indigo-950/30 rounded-2xl p-3.5 border border-indigo-500/20 mb-4">
+                    <span class="text-[10px] font-bold text-indigo-300 uppercase tracking-wider block mb-1.5">
+                        <i class="fa-solid fa-network-wired mr-1"></i> Skema / Tahapan Proses Sains
+                    </span>
+                    <div id="feedbackDiagram" class="text-xs text-indigo-100 font-medium space-y-1">
+                        <!-- Dynamic Diagram/Steps -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-2 border-t border-slate-700/60">
+                <span id="feedbackPointsGained" class="text-xs font-bold text-emerald-400">+100 Pts</span>
+                <button id="btnNextQuestion" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition flex items-center gap-2">
+                    <span>Lanjut</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Game Logic -->
+    <section id="introOverlay" class="intro-overlay" role="dialog" aria-modal="true" aria-label="Intro edukasi bencana alam" tabindex="-1">
+        <div class="intro-frame">
+            <button id="btnIntroSkip" class="intro-skip" type="button">Lewati intro <i class="fa-solid fa-forward-step ml-1" aria-hidden="true"></i></button>
+
+            <div class="intro-shot intro-earth" aria-hidden="true">
+                <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="quakeSky" x2="0" y2="1"><stop stop-color="#121e2a"/><stop offset="1" stop-color="#a05c35"/></linearGradient>
+                        <linearGradient id="quakeMantle" x2="0" y2="1"><stop stop-color="#c77a41"/><stop offset="1" stop-color="#542b28"/></linearGradient>
+                        <radialGradient id="quakeCore"><stop stop-color="#ffd078"/><stop offset="1" stop-color="#f05a28"/></radialGradient>
+                    </defs>
+                    <rect width="1600" height="900" fill="url(#quakeSky)"/>
+                    <circle cx="1280" cy="210" r="145" fill="#ffc078" opacity=".25"/>
+                    <path d="M0 470 Q400 450 800 474 Q1200 450 1600 468 V900 H0Z" fill="url(#quakeMantle)"/>
+                    <path d="M0 490 Q440 470 790 498 Q1160 470 1600 490 V580 Q1140 555 800 588 Q390 553 0 580Z" fill="#ad704a"/>
+                    <path d="M0 580 Q420 553 800 588 Q1170 556 1600 580 V900 H0Z" fill="#713c31"/>
+                    <path d="M0 700 Q400 670 800 708 Q1180 675 1600 703 V900 H0Z" fill="#4e302c"/>
+                    <path d="M0 500 L555 496 L865 628 L807 697 L690 612 L0 612Z" fill="#40515a" stroke="#b6a18a" stroke-width="5"/>
+                    <path d="M1600 500 L1080 496 L828 632 L877 705 L973 611 L1600 612Z" fill="#56636a" stroke="#b6a18a" stroke-width="5"/>
+                    <path d="M800 487 L800 528 M777 489 L767 518 M824 488 L833 518" stroke="#ffe0a3" stroke-width="7" stroke-linecap="round"/>
+                    <path d="M688 690 Q800 738 908 689 Q1025 648 1128 684" fill="none" stroke="url(#quakeCore)" stroke-width="18" opacity=".9"/>
+                    <circle cx="800" cy="608" r="18" fill="#fff0bf"/>
+                    <circle cx="800" cy="608" r="56" fill="none" stroke="#ffd38a" stroke-width="5" opacity=".72"><animate attributeName="r" values="45;160" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2s" repeatCount="indefinite"/></circle>
+                    <path d="M0 490 Q400 470 770 500 L800 468 L822 493 Q1200 468 1600 488" fill="none" stroke="#f6bc73" stroke-width="8"/>
+                </svg>
+                <div class="intro-caption"><h2>Gempa Bumi</h2><p>Lempeng bergerak, tekanan terkunci, lalu energi dilepas sebagai gelombang seismik.</p></div>
+            </div>
+
+            <div class="intro-shot intro-tsunami" aria-hidden="true">
+                <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="seaDepth" x2="0" y2="1"><stop stop-color="#70c8d6"/><stop offset=".42" stop-color="#146783"/><stop offset="1" stop-color="#071f36"/></linearGradient>
+                        <linearGradient id="waveFace" x2="0" y2="1"><stop stop-color="#b7f6fb"/><stop offset=".22" stop-color="#43c9dc"/><stop offset="1" stop-color="#0b6384"/></linearGradient>
+                    </defs>
+                    <rect width="1600" height="900" fill="#10283b"/>
+                    <path d="M0 260 Q350 220 700 260 T1400 245 L1600 250 V900 H0Z" fill="url(#seaDepth)"/>
+                    <path d="M0 270 Q350 230 700 270 T1400 255 L1600 260" fill="none" stroke="#b6f3f1" stroke-width="7" opacity=".65"/>
+                    <path d="M0 735 Q320 718 610 748 L770 668 L850 704 L965 663 L1120 738 Q1315 747 1450 640 L1600 590 V900 H0Z" fill="#624d3f"/>
+                    <path d="M0 735 Q320 718 610 748 L770 668 L850 704 L965 663 L1120 738 Q1315 747 1450 640 L1600 590" fill="none" stroke="#d5a979" stroke-width="9"/>
+                    <path d="M730 680 L800 597 L844 675" fill="#c86741" stroke="#f4b373" stroke-width="7"/>
+                    <path d="M0 268 C320 240 510 288 720 260 C845 246 866 157 952 124 C1056 83 1066 230 1170 273 C1290 322 1410 282 1600 290 L1600 465 C1430 490 1290 476 1160 443 C1030 410 1002 344 930 325 C832 300 791 394 680 412 C470 445 253 391 0 431Z" fill="url(#waveFace)"/>
+                    <path d="M0 268 C320 240 510 288 720 260 C845 246 866 157 952 124 C1056 83 1066 230 1170 273 C1290 322 1410 282 1600 290" fill="none" stroke="#e3ffff" stroke-width="14"/>
+                    <path d="M124 477 Q400 435 616 464 M1090 498 Q1320 543 1540 497" fill="none" stroke="#a0eff4" stroke-width="8" opacity=".46"/>
+                    <path d="M780 630 Q830 594 875 630 M802 654 Q850 620 900 650" fill="none" stroke="#ffcf8e" stroke-width="8"/>
+                    <path d="M1175 735 L1206 675 L1236 736 M1260 731 L1297 655 L1333 726 M1374 701 L1400 646 L1431 687" fill="#263d37"/>
+                </svg>
+                <div class="intro-caption"><h2>Tsunami</h2><p>Dasar laut terangkat. Gelombang bergerak cepat dan meninggi saat memasuki perairan dangkal.</p></div>
+            </div>
+
+            <div class="intro-shot intro-volcano" aria-hidden="true">
+                <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="eruptionSky" x2="0" y2="1"><stop stop-color="#180f19"/><stop offset=".66" stop-color="#843c2a"/><stop offset="1" stop-color="#f07b36"/></linearGradient>
+                        <linearGradient id="volcanoRock" x2=".9" y2=".8"><stop stop-color="#73564a"/><stop offset=".48" stop-color="#39383a"/><stop offset="1" stop-color="#171f28"/></linearGradient>
+                        <linearGradient id="magmaFlow" x2="0" y2="1"><stop stop-color="#fff1a2"/><stop offset=".25" stop-color="#ffb52e"/><stop offset="1" stop-color="#e63b18"/></linearGradient>
+                    </defs>
+                    <rect width="1600" height="900" fill="url(#eruptionSky)"/>
+                    <circle cx="800" cy="720" r="340" fill="#fa5e24" opacity=".16"/>
+                    <path d="M0 820 Q300 770 550 814 L790 265 L840 244 L1090 812 Q1330 757 1600 817 V900 H0Z" fill="url(#volcanoRock)" stroke="#a66c4e" stroke-width="7"/>
+                    <path d="M773 288 Q811 313 858 281 L833 409 L946 650 L896 745 L817 510 L731 694 L698 626 L784 410Z" fill="url(#magmaFlow)"/>
+                    <path d="M762 285 Q812 318 867 279" fill="none" stroke="#ffc36a" stroke-width="16"/>
+                    <path d="M800 775 Q807 672 803 594 Q804 502 820 430" fill="none" stroke="#ffed91" stroke-width="22" opacity=".82"/>
+                    <ellipse cx="818" cy="277" rx="67" ry="22" fill="#211b1d" stroke="#ff9c49" stroke-width="9"/>
+                    <g fill="#786a67" opacity=".88">
+                        <circle cx="770" cy="205" r="64"/><circle cx="822" cy="155" r="83"/><circle cx="890" cy="198" r="71"/><circle cx="736" cy="135" r="55"/><circle cx="866" cy="93" r="66"/><circle cx="952" cy="145" r="51"/>
+                    </g>
+                    <g fill="#ffbf68" opacity=".86"><circle cx="755" cy="260" r="8"><animate attributeName="cy" values="260;140" dur="1.6s" repeatCount="indefinite"/></circle><circle cx="875" cy="255" r="6"><animate attributeName="cy" values="255;120" dur="1.9s" repeatCount="indefinite"/></circle><circle cx="823" cy="236" r="5"><animate attributeName="cy" values="236;78" dur="1.4s" repeatCount="indefinite"/></circle></g>
+                    <path d="M168 825 L380 803 L492 900 H130Z M1110 900 L1230 807 L1490 836 L1540 900Z" fill="#182126"/>
+                </svg>
+                <div class="intro-caption"><h2>Gunung Meletus</h2><p>Tekanan mendorong magma naik melalui kepundan, melepas lava, gas, dan abu vulkanik.</p></div>
+            </div>
+
+            <div class="intro-shot intro-finale">
+                <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+                    <defs><radialGradient id="finalGlow"><stop stop-color="#e56b36" stop-opacity=".7"/><stop offset=".45" stop-color="#177a9e" stop-opacity=".28"/><stop offset="1" stop-color="#07121d" stop-opacity="0"/></radialGradient></defs>
+                    <rect width="1600" height="900" fill="#07121d"/>
+                    <rect width="1600" height="900" fill="url(#finalGlow)"/>
+                    <g fill="#c2efff">
+                        <circle cx="200" cy="190" r="3"/><circle cx="380" cy="720" r="4"/><circle cx="1360" cy="200" r="4"/><circle cx="1450" cy="660" r="3"/><circle cx="580" cy="152" r="2"/><circle cx="1090" cy="745" r="3"/><circle cx="1260" cy="410" r="2"/><circle cx="285" cy="480" r="2"/>
+                    </g>
+                </svg>
+                <div class="intro-orbit"></div>
+                <div class="intro-orbit" style="width:min(54%, 600px);transform:translate(-50%,-50%) rotate(62deg);animation-direction:reverse;opacity:.48"></div>
+                <div class="intro-finale-copy">
+                    <h2>JENIS-JENIS BENCANA<br>DAN PROSES TERJADINYA</h2>
+                    <button id="btnIntroStartQuiz" class="intro-launch" type="button">MULAI KUIS <i class="fa-solid fa-arrow-right ml-2" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /* ==========================================================================
+              GAME DATABASE & QUESTION BANK (10 Selected Questions)
+           ========================================================================== */
+          const questionBank = [
+            // ---------------- LEVEL 1: GEOLOGI (Questions 1 - 6) ----------------
+            {
+                id: 1,
+                level: 1,
+                levelName: "Bencana Geologi",
+                type: "mc",
+                emoji: "🌋",
+                question: "Penyebab utama terjadinya gempa bumi tektonik secara saintifik adalah...",
+                options: [
+                    "Pelepasan energi secara mendadak akibat pergeseran lempeng tektonik",
+                    "Runtuhnya gua-gua batu kapur berukuran raksasa di dalam bumi",
+                    "Aktivitas tekanan gas magma di dalam gunung berapi yang aktif",
+                    "Perubahan suhu tanah yang ekstrem saat pergantian musim"
+                ],
+                correct: 0,
+                explanation: "Gempa tektonik terjadi saat lempeng bumi saling bergesek, menumbuk, atau menjauh. Gesekan ini menahan energi potensial hingga batas elastisitas batuan terlampaui, menyebabkan pelepasan energi mendadak berupa gelombang seismik.",
+                diagram: "Lempeng Saling Bergesekan ➔ Energi Terakumulasi ➔ Patah/Pelesatan Batuan ➔ Gelombang Seismik Menyebar"
+            },
+            {
+                id: 2,
+                level: 1,
+                levelName: "Bencana Geologi",
+                type: "sequence",
+                emoji: "🌊",
+                question: "Urutkan tahapan kronologis terjadinya gelombang Tsunami akibat gempa bawah laut:",
+                items: [
+                    "Gempa tektonik dangkal berkekuatan besar terjadi di dasar laut",
+                    "Deformasi vertikal lempeng mendisposisi volume air laut secara mendadak",
+                    "Gelombang bergerak cepat di laut dalam dengan amplitudo rendah",
+                    "Gelombang memasuki laut dangkal, kecepatan berkurang, dan tinggi gelombang memuncak ke pantai"
+                ],
+                // Correct sequential order (index matching 0,1,2,3)
+                correctOrder: [0, 1, 2, 3],
+                explanation: "Tsunami dipicu oleh pergeseran sesar mendatar/naik di dasar laut yang memindahkan kolom air secara vertikal. Saat mendekati pantai, gesekan dasar laut memperlambat gelombang tetapi menumpuk energinya menjadi gelombang tinggi.",
+                diagram: "Gempa Dasar Laut ➔ Dislokasi Kolom Air ➔ Gelombang Cepat Laut Dalam ➔ Terakumulasi Tinggi di Pantai"
+            },
+            {
+                id: 3,
+                level: 1,
+                levelName: "Bencana Geologi",
+                type: "mc",
+                emoji: "🌋",
+                question: "Material gunung meletus berupa campuran gas panas, abu, dan batuan yang meluncur deras turun lereng disebut...",
+                options: [
+                    "Lahar Dingin",
+                    "Awan Panas (Pyroclastic Flow)",
+                    "Lava Basaltik",
+                    "Magma Intrusi"
+                ],
+                correct: 1,
+                explanation: "Awan panas atau aliran piroklastik adalah suspensi gas panas, abu vulkanik, dan fragmen batuan bermassa jenis tinggi yang meluncur hingga kecepatan ratusan km/jam dengan suhu mencapai 700°C.",
+                diagram: "Kubah Lava Runtuh/Erupsi Eksplosif ➔ Campuran Gas & Material Piroklastik ➔ Aliran Deras Menyelusuri Lereng"
+            },
+            {
+                id: 4,
+                level: 1,
+                levelName: "Bencana Geologi",
+                type: "matching",
+                emoji: "🏔️",
+                question: "Jodohkan jenis gempa bumi dengan faktor pemicu utamanya:",
+                pairs: [
+                    { cause: "Pergeseran lempeng litosfer bumi", hazard: "Gempa Tektonik" },
+                    { cause: "Aktivitas pergerakan magma gunung api", hazard: "Gempa Vulkanik" },
+                    { cause: "Runtuhnya rongga gua bawah tanah / tambang", hazard: "Gempa Runtuhan" }
+                ],
+                explanation: "Setiap jenis gempa memiliki pemicu spesifik: pergeseran lempeng memicu gempa tektonik, tekanan magma memicu gempa vulkanik, dan struktur tanah runtuh memicu gempa terban/runtuhan.",
+                diagram: "Tektonik (Lempeng) | Vulkanik (Magma) | Runtuhan (Gua/Tambang)"
+            },
+            {
+                id: 5,
+                level: 1,
+                levelName: "Bencana Geologi",
+                type: "mc",
+                emoji: "⛰️",
+                question: "Kondisi tanah manakah yang paling berpotensi mengalami Tanah Longsor saat curah hujan tinggi?",
+                options: [
+                    "Tanah lempung berpori padat di lereng curam tanpa vegetasi akar kuat",
+                    "Tanah berpasir datar di pesisir pantai dengan pepohonan bakau",
+                    "Lahan gambut datar dengan kadar air seimbang",
+                    "Batuan granit padat di dataran tinggi yang datar"
+                ],
+                correct: 0,
+                explanation: "Tanah longsor terjadi ketika gaya pendorong (gravitasi dan resapan air berlebih) melebihi gaya penahan (kohesi tanah dan ikatan akar). Lereng curam tanpa vegetasi membuat lereng jenuh air dan mudah menggelincir.",
+                diagram: "Hujan Lebat ➔ Air Meresap Jenuhkan Tanah ➔ Berat Beban Lereng Naik ➔ Gaya Penahan Jebol ➔ Longsor"
+            },
+            {
+                id: 6,
+                level: 1,
+                levelName: "Bencana Geologi",
+                type: "sequence",
+                emoji: "🌋",
+                question: "Urutkan siklus pergerakan Magma hingga menjadi Erupsi Gunung Meletus:",
+                items: [
+                    "Peleburan batuan di lapisan Astenosfer membentuk magma",
+                    "Magma naik ke Kantong Magma karena massa jenis lebih ringan dari batuan sekitar",
+                    "Akumulasi gas meningkatkan tekanan di dalam kantong magma",
+                    "Tekanan melampaui ambang batas batuan penutup memicu letusan/erupsi"
+                ],
+                correctOrder: [0, 1, 2, 3],
+                explanation: "Erupsi diawali peleburan material mantel dalam, magma berkumpul di ruang magma, lalu bertambahnya gas terlarut menciptakan tekanan uap tinggi hingga mendobrak pipa saluran erupsi.",
+                diagram: "Peleburan Astenosfer ➔ Migrasi ke Kantong Magma ➔ Akumulasi Tekanan Gas ➔ Erupsi Eksplosif"
+            },
+
+            // ---------------- LEVEL 2: HIDROMETEOROLOGI (Questions 7 - 12) ----------------
+            {
+                id: 7,
+                level: 2,
+                levelName: "Bencana Hidrometeorologi",
+                type: "mc",
+                emoji: "🌧️",
+                question: "Fenomena iklim El Nino berkontribusi terhadap bencana hidrometeorologi di Indonesia berupa...",
+                options: [
+                    "Kekeringan berkepanjangan akibat penurunan curah hujan",
+                    "Banjir rob masif di pesisir utara Jawa",
+                    "Badai salju ber berembun es di dataran tinggi",
+                    "Peningkatan frekuensi badai tropis di perairan selatan"
+                ],
+                correct: 0,
+                explanation: "El Nino terjadi saat suhu permukaan laut di Pasifik tengah/timur menghangat. Akibatnya, massa uap air tertarik ke Pasifik Timur, menyebabkan wilayah Indonesia mengalami kemarau panjang dan kekeringan.",
+                diagram: "Pasifik Timur Menghangat ➔ Angin Pasat Melemah ➔ Awan Bergeser dari Indonesia ➔ Curah Hujan Anjlok ➔ Kekeringan"
+            },
+            {
+                id: 8,
+                level: 2,
+                levelName: "Bencana Hidrometeorologi",
+                type: "sequence",
+                emoji: "🌪️",
+                question: "Urutkan proses pembentukan Angin Puting Beliung dari awan Cumulonimbus:",
+                items: [
+                    "Pemanasan permukaan bumi memicu arus udara naik (Updraft) yang kuat",
+                    "Uap air mengkondensasi membentuk awan Cumulonimbus (CB) yang tebal",
+                    "Arus udara naik bertemu dengan arus udara turun (Downdraft) menciptakan pusaran",
+                    "Pusaran angin berputar cepat menyentuh permukaan tanah menjadi Puting Beliung"
+                ],
+                correctOrder: [0, 1, 2, 3],
+                explanation: "Puting beliung dipicu perbedaan suhu dan tekanan ekstrem dalam awan Cumulonimbus. Benturan konveksi udara panas naik dan udara dingin turun menghasilkan pusaran vertikal berkecepatan tinggi.",
+                diagram: "Konveksi Udara Panas ➔ Awan CB Tebal ➔ Benturan Updraft & Downdraft ➔ Corong Puting Beliung Menyentuh Tanah"
+            },
+            {
+                id: 9,
+                level: 2,
+                levelName: "Bencana Hidrometeorologi",
+                type: "mc",
+                emoji: "🌊",
+                question: "Faktor antropogenik (ulah manusia) utama yang memperparah Banjir Bandang di daerah hulu sungai adalah...",
+                options: [
+                    "Alih fungsi hutan resapan menjadi lahan pertanian monokultur/pemukiman",
+                    "Pembangunan bendungan penampung air yang kokoh",
+                    "Penanaman vegetasi berakar tunggang di sepanjang Daerah Aliran Sungai (DAS)",
+                    "Pembuatan biopori dan sumur resapan air hujan di pemukiman"
+                ],
+                correct: 0,
+                explanation: "Penggundulan hutan hulu menghilangkan kemampuan infiltrasi tanah. Air hujan langsung menjadi limpasan permukaan (runoff) masif membawa erosi batuan dan lumpur menerjang kawasan bawah.",
+                diagram: "Deforestasi Hulu ➔ Hilangnya Infiltrasi ➔ Limpasan Air Permukaan 100% ➔ Banjir Bandang"
+            },
+            {
+                id: 10,
+                level: 2,
+                levelName: "Bencana Hidrometeorologi",
+                type: "matching",
+                emoji: "🌧️",
+                question: "Jodohkan jenis bencana banjir dengan kondisi lingkungan pemicunya:",
+                pairs: [
+                    { cause: "Pasang air laut tinggi akibat gravitasi bulan", hazard: "Banjir Rob" },
+                    { cause: "Debit sungai meluap akibat hujan lebat di hulu", hazard: "Banjir Luapan" },
+                    { cause: "Debit air besar + lumpur meluncur cepat dari gunung", hazard: "Banjir Bandang" }
+                ],
+                explanation: "Banjir Rob dipengaruhi dinamika pasang surut air laut, banjir luapan terjadi saat kapasitas sungai terlampaui, dan banjir bandang membawa erosi gelombang tinggi secara mendadak.",
+                diagram: "Rob (Pasang Laut) | Luapan (Kapasitas Sungai) | Bandang (Arus Deras + Material)"
+            },
+            {
+                id: 11,
+                level: 2,
+                levelName: "Bencana Hidrometeorologi",
+                type: "mc",
+                emoji: "🌊",
+                question: "Apa yang menyebabkan Banjir Rob kerap terjadi di daerah pesisir pantai bawah?",
+                options: [
+                    "Fenomena pasang air laut bersamaan dengan penurunan muka tanah (subsidence)",
+                    "Hujan meteor yang jatuh di lepas pantai",
+                    "Aktivitas gempa tektonik skala kecil di daratan",
+                    "Luapan air danau air tawar di pegunungan"
+                ],
+                correct: 0,
+                explanation: "Banjir Rob merupakan genangan air laut di daratan pesisir saat air laut pasang, diperparah oleh krisis land subsidence (penurunan tanah) akibat ekstraksi air tanah berlebih.",
+                diagram: "Pasang Laut Maksimum + Penurunan Muka Tanah Pesisir ➔ Air Laut Genangi Daratan Pesisir"
+            },
+            {
+                id: 12,
+                level: 2,
+                levelName: "Bencana Hidrometeorologi",
+                type: "sequence",
+                emoji: "☀️",
+                question: "Urutkan proses terjadinya Kekeringan Meteorologis hingga Kekeringan Hidrologis:",
+                items: [
+                    "Defisit curah hujan di bawah normal dalam jangka waktu lama (Meteorologis)",
+                    "Kandungan kelembapan air dalam tanah menurun tajam (Pertanian)",
+                    "Cadangan air di sungai, danau, dan waduk menyusut drastis (Hidrologis)",
+                    "Krisis air bersih meluas dan penurunan keanekaragaman hayati"
+                ],
+                correctOrder: [0, 1, 2, 3],
+                explanation: "Kekeringan berkembang bertahap mulai dari tingkat atmosfer (kurang hujan), lalu meresap ke kelembapan tanah, hingga menurunkan muka air tanah dan waduk secara meluas.",
+                diagram: "Kekeringan Meteorologis ➔ Kekeringan Pertanian ➔ Kekeringan Hidrologis ➔ Krisis Sosio-Ekonomi"
+            },
+
+            // ---------------- LEVEL 3: TERESTRIAL & EKSTREM (Questions 13 - 18) ----------------
+            {
+                id: 13,
+                level: 3,
+                levelName: "Terestrial & Ekstrem",
+                type: "mc",
+                emoji: "🔥",
+                question: "Tiga unsur utama pembentuk 'Segitiga Api' pemicu Kebakaran Hutan & Lahan adalah...",
+                options: [
+                    "Bahan Bakar (Vegetasi), Oksigen, dan Sumber Panas/Api",
+                    "Nitrogen, Air, dan Karbon Monoksida",
+                    "Lahan Gambut, Air Hujan, dan Angin",
+                    "Suhu Dingin, Belerang, dan Sinar UV"
+                ],
+                correct: 0,
+                explanation: "Segitiga Api (Fire Triangle) menyatakan bahwa api hanya dapat terjadi dan menyebar jika terdapat 3 komponen bersamaan: Bahan bakar kering, Oksigen di udara, dan Panas pemantik.",
+                diagram: "Bahan Bakar (Ranting/Gambut) + Oksigen (Udara) + Panas (Gesekan/Manusia) = Kebakaran Hutan"
+            },
+            {
+                id: 14,
+                level: 3,
+                levelName: "Bencana Terestrial & Ekstrem",
+                type: "sequence",
+                emoji: "💨",
+                question: "Urutkan dampak bencana Kebakaran Lahan Gambut terhadap lingkungan dan kesehatan:",
+                items: [
+                    "Pembakaran lahan gambut kering menghasilkan emisi asap dan karbon tebal",
+                    "Asap terperangkap di lapisan bawah atmosfer menciptakan fenomena Kabut Asap (Smog)",
+                    "Kualitas udara (ISPU) merosot ke tingkat Sangat Berbahaya",
+                    "Masyarakat mengalami infeksi saluran pernapasan akut (ISPA) dan gangguan penerbangan"
+                ],
+                correctOrder: [0, 1, 2, 3],
+                explanation: "Lahan gambut kaya akan material organik. Saat terbakar, api di bawah permukaan memicu asap partikulat PM2.5 konsentrasi tinggi yang merusak sistem pernapasan.",
+                diagram: "Pembakaran Gambut ➔ Partikel Asap PM2.5 ➔ Kabut Asap Terperangkap ➔ Lonjakan ISPA"
+            },
+            {
+                id: 15,
+                level: 3,
+                levelName: "Terestrial & Ekstrem",
+                type: "matching",
+                emoji: "🌍",
+                question: "Cocokkan fenomena bencana ekstrem berikut dengan mekanisme pemicunya:",
+                pairs: [
+                    { cause: "Penumpukan kubah udara panas bertekanan tinggi di atmosfer", hazard: "Gelombang Panas (Heatwave)" },
+                    { cause: "Keruntuhan batuan/es mendadak di pegunungan salju", hazard: "Longsor Salju (Avalanche)" },
+                    { cause: "Hujan debu abu silika halus dari kolom erupsi vulkanik", hazard: "Hujan Abu Vulkanik" }
+                ],
+                explanation: "Heatwave dipicu sistem cuaca kubah panas (heat dome), Avalanche oleh gravitasi pada akumulasi salju tak stabil, dan Hujan Abu oleh material eksplosif gunung api.",
+                diagram: "Heatwave (Atmospheric Dome) | Avalanche (Salju Unstable) | Hujan Abu (Vulkanik Eruption)"
+            },
+            {
+                id: 16,
+                level: 3,
+                levelName: "Terestrial & Ekstrem",
+                type: "mc",
+                emoji: "🌋",
+                question: "Mengapa api pada kebakaran di Lahan Gambut sangat sulit dipadamkan dari permukaan?",
+                options: [
+                    "Karena api membakar pori-pori gambut organik hingga jauh di bawah permukaan tanah (Underground Fire)",
+                    "Karena lahan gambut mengandung gas helium yang memadamkan air",
+                    "Karena vegetasi di atas lahan gambut memantulkan air siraman",
+                    "Karena udara di lahan gambut tidak mengandung oksigen"
+                ],
+                correct: 0,
+                explanation: "Gambut terdiri dari tumpukan sisa tumbuhan lapuk hingga kedalaman beberapa meter. Saat kemarau, permukaan gambut mengering dan api merayap di dalam tanah (ground fire) tanpa terlihat.",
+                diagram: "Permukaan Gambut Kering ➔ Api Merembet ke Bawah Tanah ➔ Smoldering Underground ➔ Asap Terus Keluar"
+            },
+            {
+                id: 17,
+                level: 3,
+                levelName: "Terestrial & Ekstrem",
+                type: "mc",
+                emoji: "🌊",
+                question: "Fenomena 'Lahar Dingin' atau Lahar Hujan pasca erupsi gunung api terjadi akibat...",
+                options: [
+                    "Hujan lebat di puncak gunung membilas material endapan endapan abu & endapan piroklastik meluncur ke lembah",
+                    "Pembekuan cepat lava panas yang terkena es puncak gunung",
+                    "Kondensasi uap air dari dalam kawah gunung berapi aktif",
+                    "Campuran gas belerang dengan air tanah bawah permukaan"
+                ],
+                correct: 0,
+                explanation: "Lahar hujan terjadi ketika endapan material vulkanik longgar di lereng puncak tersapu air hujan deras, berubah menjadi adonan semen cair pekat berdampak destruktif.",
+                diagram: "Erupsi Tinggalkan Material Vulkanik ➔ Hujan Lebat di Puncak ➔ Pencampuran Air + Piroklastik ➔ Lahar Hujan"
+            },
+            {
+                id: 18,
+                level: 3,
+                levelName: "Terestrial & Ekstrem",
+                type: "sequence",
+                emoji: "🛡️",
+                question: "Urutkan prioritas tindakan Mitigasi Bencana secara terpadu:",
+                items: [
+                    "Pemetaan kawasan rawan bencana (Zonasi Risiko)",
+                    "Pemasangan sistem peringatan dini (Early Warning System)",
+                    "Edukasi & Simulasi Kesiapsiagaan Masyarakat secara berkala",
+                    "Evakuasi terarah menuju jalur aman saat indikator bencana aktif"
+                ],
+                correctOrder: [0, 1, 2, 3],
+                explanation: "Mitigasi efektif dimulai dari analisis pemetaan wilayah risiko, penyiapan alat deteksi dini, pelatihan warga, hingga pelaksanaan evakuasi cepat berbasis panduan resmi.",
+                diagram: "Peta Risiko ➔ Peringatan Dini EWS ➔ Edukasi/Simulasi ➔ Evakuasi Selamat"
+            },
+            {
+                id: 19,
+                level: 1,
+                levelName: "Simulasi Respons Bencana",
+                type: "simulation",
+                emoji: "🚨",
+                question: "Apa yang harus kamu lakukan?",
+                options: [
+                    "Berlindung di bawah meja yang kokoh, lindungi kepala, dan berpegangan",
+                    "Berlari keluar kelas secepat mungkin saat guncangan masih berlangsung",
+                    "Berdiri dekat jendela agar mudah melihat keadaan di luar",
+                    "Mengambil tas dan barang berharga terlebih dahulu"
+                ],
+                correct: 0,
+                explanation: "Saat gempa terjadi di dalam kelas, tetap tenang dan lakukan Drop, Cover, Hold On: merunduk, berlindung di bawah meja yang kokoh, melindungi kepala, lalu berpegangan sampai guncangan berhenti. Setelah itu ikuti arahan guru menuju jalur evakuasi.",
+                diagram: "Guncangan Terasa ➔ Drop (Merunduk) ➔ Cover (Lindungi Kepala di Bawah Meja) ➔ Hold On (Berpegangan) ➔ Evakuasi Setelah Guncangan Berhenti"
+            },
+            {
+                id: 20,
+                level: 1,
+                levelName: "Simulasi Kesiapsiagaan",
+                type: "emergencyBag",
+                emoji: "🎒",
+                question: "Tas Siaga Bencana",
+                items: [
+                    { name: "Botol Air Minum", weight: 2, essential: true, icon: "💧" },
+                    { name: "Kotak P3K", weight: 1, essential: true, icon: "🩹" },
+                    { name: "Wisel (Peluit)", weight: 0.1, essential: true, icon: "📣" },
+                    { name: "Senter", weight: 0.5, essential: true, icon: "🔦" },
+                    { name: "Dokumen Penting dalam Folder Plastik", weight: 0.3, essential: false, icon: "📁" },
+                    { name: "Laptop", weight: 2, essential: false, icon: "💻" },
+                    { name: "Sepatu Hak Tinggi", weight: 1, essential: false, icon: "👠" }
+                ],
+                capacity: 4,
+                explanation: "Masukkan empat perlengkapan utama: Botol Air Minum, Kotak P3K, Senter, dan Wisel (Peluit). Dokumen penting dalam folder plastik dapat dipertimbangkan setelah kebutuhan utama terpenuhi, sedangkan laptop dan sepatu hak tinggi tidak mendukung keselamatan saat evakuasi.",
+                diagram: "Pilih Kebutuhan Dasar ➔ Isi 4 Slot Tepat ➔ Hindari Barang Tidak Perlu ➔ Siap Evakuasi"
+            }
+        ];
+        const selectedQuestionIds = [19, 2, 5, 20, 7, 8, 10, 13, 14, 15];
+        const questionsDatabase = selectedQuestionIds
+            .map(questionId => questionBank.find(question => question.id === questionId))
+            .filter(Boolean);
+
+        /* ==========================================================================
+           GAME ENGINE STATE & CONTROLLER
+           ========================================================================== */
+        let gameState = {
+            currentQuestionIdx: 0,
+            score: 0,
+            combo: 0,
+            correctCount: 0,
+            totalQuestions: questionsDatabase.length,
+            // Temporary storage for matching/sequence types
+            currentSequenceState: [],
+            currentMatchingState: {},
+            simulationTimerId: null,
+            simulationAnswered: false,
+            selectedBagItems: [],
+            questionTimerId: null,
+            questionTimeRemaining: 60,
+            warningSoundPlayed: false,
+            questionAudioContext: null,
+            questionAudioSources: [],
+            participant: {
+                name: '',
+                className: '',
+                school: ''
+            }
+        };
+
+        // DOM Element Selectors
+        const startScreen = document.getElementById('startScreen');
+        const quizScreen = document.getElementById('quizScreen');
+        const resultScreen = document.getElementById('resultScreen');
+        const feedbackModal = document.getElementById('feedbackModal');
+        const topStatsBar = document.getElementById('topStatsBar');
+        // Buttons
+        const btnStartGame = document.getElementById('btnStartGame');
+        const participantName = document.getElementById('participantName');
+        const participantClass = document.getElementById('participantClass');
+        const participantSchool = document.getElementById('participantSchool');
+        const identityError = document.getElementById('identityError');
+        const btnNextQuestion = document.getElementById('btnNextQuestion');
+        const btnRestartGame = document.getElementById('btnRestartGame');
+        const btnPrintCertificate = document.getElementById('btnPrintCertificate');
+        const introOverlay = document.getElementById('introOverlay');
+        const introAudioSources = [];
+        let introAudioContext = null;
+        let introReadyTimer = null;
+        let introAutoStartTimer = null;
+        let introSpeechTimer = null;
+        let introStartsQuiz = false;
+
+        document.getElementById('btnIntroSkip').addEventListener('click', skipIntro);
+        document.getElementById('btnIntroStartQuiz').addEventListener('click', startGame);
+
+        /* Initialize Event Listeners */
+        btnStartGame.addEventListener('click', beginGameWithIdentity);
+        btnNextQuestion.addEventListener('click', closeFeedbackAndNext);
+        btnPrintCertificate.addEventListener('click', () => window.print());
+        btnRestartGame.addEventListener('click', () => playIntro(true));
+
+        function beginGameWithIdentity() {
+            const name = participantName.value.trim();
+            const className = participantClass.value;
+            const school = participantSchool.value.trim();
+            const isComplete = name.length > 0 && className.length > 0 && school.length > 0;
+
+            identityError.classList.toggle('hidden', isComplete);
+            if (!isComplete) {
+                [participantName, participantClass, participantSchool].find(field => !field.value.trim())?.focus();
+                return;
+            }
+
+            gameState.participant = { name, className, school };
+            playIntro(true);
+        }
+
+        /* Start Game Function */
+        function startGame() {
+            stopIntro();
+            clearQuestionTimer();
+            stopQuestionTheme();
+            gameState.currentQuestionIdx = 0;
+            gameState.score = 0;
+            gameState.combo = 0;
+            gameState.correctCount = 0;
+
+            startScreen.classList.add('hidden');
+            resultScreen.classList.add('hidden');
+            quizScreen.classList.remove('hidden');
+            topStatsBar.classList.remove('hidden');
+            document.getElementById('headerParticipant').textContent = `${gameState.participant.name} • ${gameState.participant.className}`;
+
+            loadQuestion(gameState.currentQuestionIdx);
+        }
+
+        function playIntro(startQuizAfterIntro = false) {
+            stopIntro();
+            introStartsQuiz = startQuizAfterIntro;
+            introOverlay.classList.add('is-playing');
+            document.body.classList.add('overflow-hidden');
+            introOverlay.focus({ preventScroll: true });
+            playIntroSoundtrack();
+            speakIntroNarration();
+
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const readyDelay = reducedMotion ? 100 : 13400;
+            introReadyTimer = setTimeout(() => introOverlay.classList.add('is-ready'), readyDelay);
+            if (introStartsQuiz) introAutoStartTimer = setTimeout(startGame, reducedMotion ? 1500 : 18000);
+        }
+
+        function speakIntroNarration() {
+            if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) return;
+
+            const speech = window.speechSynthesis;
+            speech.cancel();
+            const narration = new SpeechSynthesisUtterance('Selamat datang di pembelajaran geografi, mari kita pelajari jenis-jenis bencana dan proses terjadinya.');
+            narration.lang = 'id-ID';
+            narration.rate = 0.94;
+            narration.pitch = 1;
+            narration.volume = 1;
+
+            let attempts = 0;
+            function queueNarration() {
+                if (!introOverlay.classList.contains('is-playing')) return;
+                const voices = speech.getVoices();
+                const indonesianVoice = voices.find(voice => voice.lang.toLowerCase().startsWith('id'));
+                if (!indonesianVoice && voices.length === 0 && attempts < 10) {
+                    attempts++;
+                    introSpeechTimer = setTimeout(queueNarration, 120);
+                    return;
+                }
+                narration.voice = indonesianVoice || voices.find(voice => voice.default) || null;
+                speech.speak(narration);
+
+                const safetyNarration = new SpeechSynthesisUtterance('Untuk keselamatan kita bersama.');
+                safetyNarration.lang = narration.lang;
+                safetyNarration.rate = narration.rate;
+                safetyNarration.pitch = narration.pitch;
+                safetyNarration.volume = narration.volume;
+                safetyNarration.voice = narration.voice;
+                speech.speak(safetyNarration);
+
+                const closingNarration = new SpeechSynthesisUtterance('Mari kerjakan kuis berikut.');
+                closingNarration.lang = 'id-ID';
+                closingNarration.rate = 0.94;
+                closingNarration.pitch = 1;
+                closingNarration.volume = 1;
+                closingNarration.voice = narration.voice;
+                introSpeechTimer = setTimeout(() => {
+                    if (introOverlay.classList.contains('is-playing')) speech.speak(closingNarration);
+                }, 13200);
+            }
+
+            queueNarration();
+        }
+
+        function playIntroSoundtrack() {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContextClass) return;
+
+            introAudioContext = new AudioContextClass();
+            const audio = introAudioContext;
+            const now = audio.currentTime;
+            audio.resume();
+
+            function addTone(frequency, delay, duration, volume, waveform = 'sine') {
+                const oscillator = audio.createOscillator();
+                const gain = audio.createGain();
+                oscillator.type = waveform;
+                oscillator.frequency.setValueAtTime(frequency, now + delay);
+                gain.gain.setValueAtTime(0, now + delay);
+                gain.gain.linearRampToValueAtTime(volume, now + delay + 0.65);
+                gain.gain.setTargetAtTime(0, now + delay + duration - 1, 0.8);
+                oscillator.connect(gain).connect(audio.destination);
+                oscillator.start(now + delay);
+                oscillator.stop(now + delay + duration);
+                introAudioSources.push(oscillator);
+            }
+
+            function addWhoosh(delay, duration, lowCutoff, highCutoff, volume) {
+                const buffer = audio.createBuffer(1, Math.ceil(audio.sampleRate * duration), audio.sampleRate);
+                const samples = buffer.getChannelData(0);
+                for (let index = 0; index < samples.length; index++) samples[index] = (Math.random() * 2 - 1) * 0.42;
+
+                const source = audio.createBufferSource();
+                const filter = audio.createBiquadFilter();
+                const gain = audio.createGain();
+                source.buffer = buffer;
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(lowCutoff, now + delay);
+                filter.frequency.exponentialRampToValueAtTime(highCutoff, now + delay + duration * 0.7);
+                gain.gain.setValueAtTime(0, now + delay);
+                gain.gain.linearRampToValueAtTime(volume, now + delay + duration * 0.35);
+                gain.gain.linearRampToValueAtTime(0, now + delay + duration);
+                source.connect(filter).connect(gain).connect(audio.destination);
+                source.start(now + delay);
+                source.stop(now + delay + duration);
+                introAudioSources.push(source);
+            }
+
+            [[55, 82.4, 110], [49, 73.4, 98], [43.7, 65.4, 87], [65.4, 98, 130.8]].forEach((chord, index) => {
+                const delay = [0, 4, 8, 13][index];
+                chord.forEach((frequency, noteIndex) => addTone(frequency, delay, 5.2, index === 3 ? 0.027 : 0.018, noteIndex ? 'triangle' : 'sine'));
+            });
+            addTone(261.6, 13, 4.8, 0.012, 'sine');
+            addTone(392, 14, 4, 0.009, 'sine');
+            addWhoosh(0, 3.8, 90, 180, 0.075);
+            addWhoosh(3.7, 4.4, 180, 900, 0.05);
+            addWhoosh(7.5, 5.2, 650, 120, 0.07);
+            addWhoosh(12.8, 4.7, 180, 1600, 0.04);
+        }
+
+        function stopIntro() {
+            introOverlay.classList.remove('is-playing', 'is-ready');
+            document.body.classList.remove('overflow-hidden');
+            clearTimeout(introReadyTimer);
+            clearTimeout(introAutoStartTimer);
+            clearTimeout(introSpeechTimer);
+            introReadyTimer = null;
+            introAutoStartTimer = null;
+            introSpeechTimer = null;
+            introStartsQuiz = false;
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            introAudioSources.forEach(source => {
+                try { source.stop(); } catch (error) { /* Source may already have stopped. */ }
+            });
+            introAudioSources.length = 0;
+            if (introAudioContext) {
+                introAudioContext.close();
+                introAudioContext = null;
+            }
+        }
+
+        function skipIntro() {
+            const shouldStartQuiz = introStartsQuiz;
+            stopIntro();
+            if (shouldStartQuiz) startGame();
+        }
+
+        /* Load Single Question into UI */
+        function loadQuestion(index) {
+            const q = questionsDatabase[index];
+
+            // Update Top Bar & Progress Headers
+            document.getElementById('headerLevel').textContent = `Lvl ${q.level} - ${q.levelName.split(' ')[0]}`;
+            document.getElementById('headerScore').textContent = gameState.score;
+            document.getElementById('headerCombo').textContent = `${gameState.combo}x`;
+            
+            document.getElementById('badgeCategory').textContent = q.levelName.toUpperCase();
+            document.getElementById('questionCounter').textContent = `Soal ${index + 1} / ${gameState.totalQuestions}`;
+            document.getElementById('levelIndicator').textContent = `Level ${q.level} / 3`;
+
+            document.getElementById('qEmoji').textContent = q.emoji;
+            document.getElementById('questionText').textContent = q.question;
+
+            // Reset Containers
+            const mcContainer = document.getElementById('typeMultipleChoice');
+            const seqContainer = document.getElementById('typeSequence');
+            const matchContainer = document.getElementById('typeMatching');
+            const simulationContainer = document.getElementById('typeSimulation');
+            const emergencyBagContainer = document.getElementById('typeEmergencyBag');
+
+            mcContainer.classList.add('hidden');
+            seqContainer.classList.add('hidden');
+            matchContainer.classList.add('hidden');
+            simulationContainer.classList.add('hidden');
+            emergencyBagContainer.classList.add('hidden');
+            clearQuestionTimer();
+            stopQuestionTheme();
+            setQuestionTheme(q);
+
+            // Render according to Question Type
+            if (q.type === 'mc') {
+                document.getElementById('qTypeBadge').textContent = "Pilihan Ganda";
+                mcContainer.classList.remove('hidden');
+                renderMultipleChoice(q);
+            } else if (q.type === 'sequence') {
+                document.getElementById('qTypeBadge').textContent = "Mengurutkan Tahapan Kronologis";
+                seqContainer.classList.remove('hidden');
+                renderSequenceQuestion(q);
+            } else if (q.type === 'matching') {
+                document.getElementById('qTypeBadge').textContent = "Mencocokkan Pasangan";
+                matchContainer.classList.remove('hidden');
+                renderMatchingQuestion(q);
+            } else if (q.type === 'simulation') {
+                document.getElementById('qTypeBadge').textContent = "Mode Simulasi • Batas Waktu";
+                simulationContainer.classList.remove('hidden');
+                renderSimulationQuestion(q);
+            } else if (q.type === 'emergencyBag') {
+                document.getElementById('qTypeBadge').textContent = "Mini-game • Tas Siaga";
+                emergencyBagContainer.classList.remove('hidden');
+                renderEmergencyBagQuestion(q);
+            }
+
+            startQuestionTimer();
+        }
+
+        function startQuestionTimer() {
+            const timer = document.getElementById('questionTimer');
+            const timerText = timer.querySelector('span');
+            gameState.questionTimeRemaining = 60;
+            gameState.warningSoundPlayed = false;
+            timer.classList.remove('is-urgent');
+            updateQuestionTimerDisplay();
+            gameState.questionTimerId = setInterval(() => {
+                gameState.questionTimeRemaining--;
+                updateQuestionTimerDisplay();
+
+                if (gameState.questionTimeRemaining <= 10) {
+                    timer.classList.add('is-urgent');
+                    if (!gameState.warningSoundPlayed) {
+                        gameState.warningSoundPlayed = true;
+                        playWarningSiren();
+                    }
+                }
+
+                if (gameState.questionTimeRemaining <= 0) {
+                    clearQuestionTimer();
+                    handleAnswerSubmit(false, true);
+                }
+            }, 1000);
+        }
+
+        function updateQuestionTimerDisplay() {
+            const timerText = document.querySelector('#questionTimer span');
+            if (!timerText) return;
+            const minutes = String(Math.floor(gameState.questionTimeRemaining / 60)).padStart(2, '0');
+            const seconds = String(gameState.questionTimeRemaining % 60).padStart(2, '0');
+            timerText.textContent = `${minutes}:${seconds}`;
+            const simulationTimerText = document.querySelector('#simulationTimer span');
+            if (simulationTimerText) {
+                const minutes = String(Math.floor(gameState.questionTimeRemaining / 60)).padStart(2, '0');
+                const seconds = String(gameState.questionTimeRemaining % 60).padStart(2, '0');
+                simulationTimerText.textContent = `${minutes}:${seconds}`;
+                simulationTimerText.parentElement.classList.toggle('is-urgent', gameState.questionTimeRemaining <= 10);
+            }
+        }
+
+        function clearQuestionTimer() {
+            if (gameState.questionTimerId) clearInterval(gameState.questionTimerId);
+            gameState.questionTimerId = null;
+            clearSimulationTimer();
+        }
+
+        function setQuestionTheme(q) {
+            const isEarthquake = q.id === 1 || /gempa/i.test(q.question);
+            const isFlood = /banjir|hujan lebat|lahar hujan/i.test(`${q.question} ${q.explanation}`);
+            stopQuestionTheme();
+            quizScreen.classList.toggle('theme-quake', isEarthquake);
+            quizScreen.classList.toggle('theme-flood', isFlood);
+            if (isEarthquake) startQuestionThemeAudio('earthquake');
+            if (isFlood) startQuestionThemeAudio('rain');
+        }
+
+        function startQuestionThemeAudio(theme) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContextClass) return;
+            const audio = new AudioContextClass();
+            gameState.questionAudioContext = audio;
+            audio.resume();
+            const source = audio.createBufferSource();
+            const filter = audio.createBiquadFilter();
+            const gain = audio.createGain();
+            const duration = 4;
+            const buffer = audio.createBuffer(1, Math.ceil(audio.sampleRate * duration), audio.sampleRate);
+            const samples = buffer.getChannelData(0);
+            for (let index = 0; index < samples.length; index++) samples[index] = (Math.random() * 2 - 1) * 0.42;
+            source.buffer = buffer;
+            filter.type = theme === 'rain' ? 'lowpass' : 'bandpass';
+            filter.frequency.value = theme === 'rain' ? 2400 : 85;
+            filter.Q.value = theme === 'rain' ? 0.5 : 0.9;
+            gain.gain.value = theme === 'rain' ? 0.045 : 0.035;
+            source.loop = true;
+            source.connect(filter).connect(gain).connect(audio.destination);
+            source.start();
+            gameState.questionAudioSources.push(source);
+        }
+
+        function playWarningSiren() {
+            const audio = gameState.questionAudioContext || new (window.AudioContext || window.webkitAudioContext)();
+            if (!gameState.questionAudioContext) gameState.questionAudioContext = audio;
+            audio.resume();
+            const now = audio.currentTime;
+            const oscillator = audio.createOscillator();
+            const gain = audio.createGain();
+            oscillator.type = 'sawtooth';
+            oscillator.frequency.setValueAtTime(520, now);
+            oscillator.frequency.linearRampToValueAtTime(760, now + 0.55);
+            oscillator.frequency.linearRampToValueAtTime(520, now + 1.1);
+            gain.gain.setValueAtTime(0.0001, now);
+            gain.gain.exponentialRampToValueAtTime(0.055, now + 0.08);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.15);
+            oscillator.connect(gain).connect(audio.destination);
+            oscillator.start(now);
+            oscillator.stop(now + 1.2);
+            gameState.questionAudioSources.push(oscillator);
+        }
+
+        function stopQuestionTheme() {
+            quizScreen.classList.remove('theme-quake', 'theme-flood');
+            gameState.questionAudioSources.forEach(source => {
+                try { source.stop(); } catch (error) { /* Source may already be stopped. */ }
+            });
+            gameState.questionAudioSources = [];
+            if (gameState.questionAudioContext) {
+                gameState.questionAudioContext.close();
+                gameState.questionAudioContext = null;
+            }
+        }
+
+        /* Render Type 1: Multiple Choice */
+        function renderMultipleChoice(q) {
+            const container = document.getElementById('typeMultipleChoice');
+            container.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "glass-card p-4 rounded-2xl text-left text-xs sm:text-sm font-medium text-slate-200 hover:text-white hover:bg-indigo-600/30 flex items-center gap-3 transition-all";
+                
+                const label = String.fromCharCode(65 + idx); // A, B, C, D
+                btn.innerHTML = `
+                    <span class="w-7 h-7 rounded-xl bg-indigo-500/20 text-indigo-300 font-bold flex items-center justify-center text-xs border border-indigo-500/30 flex-shrink-0">${label}</span>
+                    <span class="leading-snug">${opt}</span>
+                `;
+
+                btn.onclick = () => {
+                    const isCorrect = idx === q.correct;
+                    handleAnswerSubmit(isCorrect);
+                };
+
+                container.appendChild(btn);
+            });
+        }
+
+        /* Render Type 2: Sequence Ordering */
+        function renderSequenceQuestion(q) {
+            // Shuffle initial sequence
+            gameState.currentSequenceState = q.items.map((text, idx) => ({ text, originalIdx: idx }));
+            // Simple deterministic shuffle for variety
+            gameState.currentSequenceState.sort(() => 0.5 - Math.random());
+
+            renderSequenceItems();
+
+            document.getElementById('btnSubmitSequence').onclick = () => {
+                // Check if current user order matches correctOrder [0,1,2,3]
+                let isCorrect = true;
+                for (let i = 0; i < gameState.currentSequenceState.length; i++) {
+                    if (gameState.currentSequenceState[i].originalIdx !== q.correctOrder[i]) {
+                        isCorrect = false;
+                        break;
+                    }
+                }
+                handleAnswerSubmit(isCorrect);
+            };
+        }
+
+        function renderSequenceItems() {
+            const list = document.getElementById('sequenceList');
+            list.innerHTML = '';
+
+            gameState.currentSequenceState.forEach((item, index) => {
+                const row = document.createElement('div');
+                row.className = "bg-slate-900/80 p-3 rounded-2xl border border-slate-700/80 flex items-center justify-between gap-3 text-xs text-slate-200";
+                
+                row.innerHTML = `
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-6 h-6 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center text-[11px] border border-slate-700 flex-shrink-0">${index + 1}</span>
+                        <span class="leading-tight">${item.text}</span>
+                    </div>
+                    <div class="flex items-center gap-1 flex-shrink-0">
+                        <button onclick="moveSequence(${index}, -1)" class="w-7 h-7 rounded-lg bg-slate-800 hover:bg-indigo-600/40 text-slate-300 font-bold flex items-center justify-center text-xs border border-slate-700 ${index === 0 ? 'opacity-30 cursor-not-allowed' : ''}">▲</button>
+                        <button onclick="moveSequence(${index}, 1)" class="w-7 h-7 rounded-lg bg-slate-800 hover:bg-indigo-600/40 text-slate-300 font-bold flex items-center justify-center text-xs border border-slate-700 ${index === gameState.currentSequenceState.length - 1 ? 'opacity-30 cursor-not-allowed' : ''}">▼</button>
+                    </div>
+                `;
+                list.appendChild(row);
+            });
+        }
+
+        window.moveSequence = function(index, direction) {
+            const newIndex = index + direction;
+            if (newIndex < 0 || newIndex >= gameState.currentSequenceState.length) return;
+            
+            const temp = gameState.currentSequenceState[index];
+            gameState.currentSequenceState[index] = gameState.currentSequenceState[newIndex];
+            gameState.currentSequenceState[newIndex] = temp;
+            renderSequenceItems();
+        };
+
+        /* Render Type 3: Matching Pairs */
+        function renderMatchingQuestion(q) {
+            const container = document.getElementById('matchingGrid');
+            container.innerHTML = '';
+            gameState.currentMatchingState = {};
+
+            // Extract unique hazards for dropdown selection
+            const hazards = q.pairs.map(p => p.hazard);
+            // Shuffle dropdown options
+            const shuffledHazards = [...hazards].sort(() => 0.5 - Math.random());
+
+            q.pairs.forEach((pair, idx) => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-900/80 p-3.5 rounded-2xl border border-slate-700/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs";
+                
+                let selectOptionsHtml = `<option value="">-- Pilih Jenis Bencana --</option>`;
+                shuffledHazards.forEach(h => {
+                    selectOptionsHtml += `<option value="${h}">${h}</option>`;
+                });
+
+                card.innerHTML = `
+                    <div class="text-slate-200 flex items-start gap-2 max-w-sm">
+                        <span class="text-sky-400 font-bold">•</span>
+                        <span>${pair.cause}</span>
+                    </div>
+                    <select onchange="updateMatchingChoice(${idx}, this.value)" class="bg-slate-800 border border-slate-600 text-sky-200 font-semibold rounded-xl p-2.5 text-xs focus:ring-1 focus:ring-sky-500 outline-none">
+                        ${selectOptionsHtml}
+                    </select>
+                `;
+                container.appendChild(card);
+            });
+
+            document.getElementById('btnSubmitMatching').onclick = () => {
+                let isCorrect = true;
+                q.pairs.forEach((pair, idx) => {
+                    if (gameState.currentMatchingState[idx] !== pair.hazard) {
+                        isCorrect = false;
+                    }
+                });
+                handleAnswerSubmit(isCorrect);
+            };
+        }
+
+        window.updateMatchingChoice = function(pairIdx, selectedValue) {
+            gameState.currentMatchingState[pairIdx] = selectedValue;
+        };
+
+        /* Render Type 4: Emergency Bag Packing Mini-game */
+        function renderEmergencyBagQuestion(q) {
+            const container = document.getElementById('emergencyBagItems');
+            const weightText = document.getElementById('bagWeight');
+            container.innerHTML = '';
+            gameState.selectedBagItems = [];
+            weightText.textContent = '0';
+
+            q.items.forEach((item, index) => {
+                const label = document.createElement('label');
+                label.className = "glass-card p-3 rounded-2xl flex items-center gap-3 cursor-pointer text-xs text-slate-100 hover:bg-orange-500/20 border-orange-500/20";
+                label.innerHTML = `
+                    <input type="checkbox" value="${index}" class="accent-orange-500 w-4 h-4 flex-shrink-0">
+                    <span class="text-xl">${item.icon}</span>
+                    <span class="flex-1 font-semibold">${item.name}</span>
+                    <span class="text-[10px] text-amber-200 whitespace-nowrap">1 slot</span>
+                `;
+                const checkbox = label.querySelector('input');
+                checkbox.addEventListener('change', () => {
+                    gameState.selectedBagItems = Array.from(container.querySelectorAll('input:checked')).map(input => Number(input.value));
+                    const selectedSlots = gameState.selectedBagItems.length;
+                    weightText.textContent = selectedSlots;
+                    weightText.classList.toggle('text-rose-300', selectedSlots > q.capacity);
+                });
+                container.appendChild(label);
+            });
+
+            document.getElementById('btnSubmitEmergencyBag').onclick = () => {
+                const selected = new Set(gameState.selectedBagItems);
+                const selectedSlots = gameState.selectedBagItems.length;
+                const allEssentialsSelected = q.items.every((item, index) => !item.essential || selected.has(index));
+                const noNonEssentialsSelected = q.items.every((item, index) => item.essential || !selected.has(index));
+                const isCorrect = selectedSlots <= q.capacity && allEssentialsSelected && noNonEssentialsSelected;
+                handleAnswerSubmit(isCorrect);
+            };
+        }
+
+        /* Render Type 4: Timed Emergency Response Simulation */
+        function renderSimulationQuestion(q) {
+            const container = document.getElementById('simulationOptions');
+            const timer = document.getElementById('simulationTimer');
+            const timerText = timer.querySelector('span');
+            gameState.simulationAnswered = false;
+            timer.classList.remove('is-urgent');
+            timerText.textContent = gameState.questionTimeRemaining;
+            container.innerHTML = '';
+
+            q.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = "glass-card p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold text-slate-100 hover:text-white hover:bg-orange-500/25 flex items-start gap-3 transition-all border-orange-500/20";
+                button.innerHTML = `
+                    <span class="w-7 h-7 rounded-xl bg-orange-500/20 text-orange-200 font-bold flex items-center justify-center text-xs border border-orange-400/30 flex-shrink-0">${String.fromCharCode(65 + index)}</span>
+                    <span class="leading-snug">${option}</span>
+                `;
+                button.onclick = () => submitSimulationAnswer(index === q.correct, container);
+                container.appendChild(button);
+            });
+        }
+
+        function submitSimulationAnswer(isCorrect, container, timedOut = false) {
+            if (gameState.simulationAnswered) return;
+            gameState.simulationAnswered = true;
+            clearQuestionTimer();
+            container.querySelectorAll('button').forEach(button => {
+                button.disabled = true;
+                button.classList.add('opacity-60', 'cursor-not-allowed');
+            });
+            handleAnswerSubmit(isCorrect, timedOut);
+        }
+
+        function clearSimulationTimer() {
+            if (gameState.simulationTimerId) clearInterval(gameState.simulationTimerId);
+            gameState.simulationTimerId = null;
+        }
+
+        /* Answer Handler & Score Processing */
+        function handleAnswerSubmit(isCorrect, timedOut = false) {
+            const q = questionsDatabase[gameState.currentQuestionIdx];
+            clearQuestionTimer();
+            stopQuestionTheme();
+
+            let ptsGained = 0;
+            if (isCorrect) {
+                gameState.combo++;
+                gameState.correctCount++;
+                // Score calculation: base (100) + combo bonus
+                const comboBonus = (gameState.combo - 1) * 20;
+                ptsGained = 100 + comboBonus;
+                gameState.score += ptsGained;
+            } else {
+                gameState.combo = 0;
+            }
+
+            // Populate Modal Feedback
+            const icon = document.getElementById('feedbackStatusIcon');
+            const statusText = document.getElementById('feedbackStatusText');
+            const title = document.getElementById('feedbackTitle');
+            const explanation = document.getElementById('feedbackExplanation');
+            const diagram = document.getElementById('feedbackDiagram');
+            const pointsText = document.getElementById('feedbackPointsGained');
+
+            if (isCorrect) {
+                icon.className = "w-10 h-10 rounded-full flex items-center justify-center text-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+                icon.textContent = "✓";
+                statusText.className = "text-xs font-bold uppercase tracking-wider text-emerald-400";
+                statusText.textContent = `Jawaban Benar! (Combo ${gameState.combo}x)`;
+                pointsText.textContent = `+${ptsGained} Pts`;
+                pointsText.className = "text-xs font-bold text-emerald-400";
+            } else {
+                icon.className = "w-10 h-10 rounded-full flex items-center justify-center text-xl bg-rose-500/20 text-rose-400 border border-rose-500/30";
+                icon.textContent = "✕";
+                statusText.className = "text-xs font-bold uppercase tracking-wider text-rose-400";
+                statusText.textContent = timedOut ? "Waktu Habis" : "Jawaban Kurang Tepat";
+                pointsText.textContent = "+0 Pts";
+                pointsText.className = "text-xs font-bold text-slate-500";
+            }
+
+            title.textContent = `Mekanisme: ${q.question.slice(0, 50)}...`;
+            explanation.textContent = q.explanation;
+            
+            // Format Diagram Steps
+            const steps = q.diagram.split(' ➔ ');
+            diagram.innerHTML = steps.map((s, i) => `
+                <div class="flex items-center gap-2">
+                    <span class="text-indigo-400 font-bold text-[10px]">${i+1}.</span>
+                    <span>${s}</span>
+                </div>
+            `).join('');
+
+            // Show Feedback Modal
+            feedbackModal.classList.remove('hidden');
+        }
+
+        /* Close Feedback Modal & Advance to Next Question */
+        function closeFeedbackAndNext() {
+            feedbackModal.classList.add('hidden');
+            gameState.currentQuestionIdx++;
+
+            if (gameState.currentQuestionIdx < gameState.totalQuestions) {
+                loadQuestion(gameState.currentQuestionIdx);
+            } else {
+                showResultsScreen();
+            }
+        }
+
+        /* Show Final Game Summary & Results */
+        function showResultsScreen() {
+            quizScreen.classList.add('hidden');
+            topStatsBar.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+
+            const accuracy = Math.round((gameState.correctCount / gameState.totalQuestions) * 100);
+
+            document.getElementById('finalScoreText').textContent = gameState.score;
+            document.getElementById('finalAccuracyText').textContent = `${accuracy}%`;
+            document.getElementById('finalCorrectText').textContent = `${gameState.correctCount} / ${gameState.totalQuestions}`;
+            document.getElementById('certificateParticipantName').textContent = gameState.participant.name;
+            document.getElementById('certificateParticipantInfo').textContent = `Kelas ${gameState.participant.className} • ${gameState.participant.school}`;
+            document.getElementById('certificateScore').textContent = gameState.score;
+            document.getElementById('certificateAccuracy').textContent = `${accuracy}%`;
+            document.getElementById('certificateDate').textContent = new Intl.DateTimeFormat('id-ID', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            }).format(new Date());
+
+            // Dynamic Badge Criteria
+            const badgeIcon = document.getElementById('resultBadgeIcon');
+            const badgeTitle = document.getElementById('resultBadgeTitle');
+            const summaryText = document.getElementById('summaryEduText');
+
+            if (accuracy >= 85) {
+                badgeIcon.textContent = "🏆";
+                badgeIcon.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl mb-4 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+                badgeTitle.textContent = "AHIL MITIGASI BENCANA ALAM";
+                badgeTitle.className = "text-xs font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1 rounded-full border border-emerald-500/20";
+                summaryText.textContent = "Luar biasa! Kamu menguasai proses geologis, hidrometeorologis, dan terestrial dengan sangat baik. Pemahaman mendalam ini penting untuk aksi mitigasi dan respon cepat bencana.";
+            } else if (accuracy >= 60) {
+                badgeIcon.textContent = "🛡️";
+                badgeIcon.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl mb-4 bg-sky-500/20 text-sky-400 border border-sky-500/30";
+                badgeTitle.textContent = "RELAWAN SIAP SIAGA BENCANA";
+                badgeTitle.className = "text-xs font-extrabold uppercase tracking-widest text-sky-400 bg-sky-500/10 px-4 py-1 rounded-full border border-sky-500/20";
+                summaryText.textContent = "Hasil yang bagus! Kamu telah memahami sebagian besar konsep bencana alam. Pelajari kembali detail tahapan kronologis seperti Tsunami dan Erupsi untuk meningkatkan kesiapsiagaan.";
+            } else {
+                badgeIcon.textContent = "📖";
+                badgeIcon.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl mb-4 bg-amber-500/20 text-amber-400 border border-amber-500/30";
+                badgeTitle.textContent = "PELAJAR TANGGAP BENCANA";
+                badgeTitle.className = "text-xs font-extrabold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-4 py-1 rounded-full border border-amber-500/20";
+                summaryText.textContent = "Tetap semangat! Geografi bencana membutuhkan pemahaman siklus pemicu dan dampaknya. Cobalah bermain kembali untuk memperdalam ingatanmu tentang sains bencana.";
+            }
+        }
+    </script>
+</body>
+</html>
